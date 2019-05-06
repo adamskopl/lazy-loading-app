@@ -1,0 +1,24 @@
+<!doctype html>
+<title>LAZY LOADING</title>
+
+<link rel="stylesheet" href="./main.css">
+<link rel="stylesheet" href="node_modules/normalize.css/normalize.css">
+
+<script src="node_modules/vue/dist/vue.js"></script>
+<script src="js/main.js" type="module"></script>
+
+<div id="app">
+  <div class="thumb-init" v-if="elements.length === 0"></div>
+  <div class="height-overflow" v-if="elements.length === 0"></div>
+
+  <img
+    v-for="e in elements"
+    :key="e.id"
+    class="thumb"
+    :class="{ 'thumb-loading': e.status.loading }"
+    :src="e.src"
+    :class="e.class"
+  >
+
+  <div class="loader" v-if="appending"></div>
+</div>

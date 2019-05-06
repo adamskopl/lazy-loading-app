@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+}
+
+/* CONFIGURATION */
+:root {
+    --thumb-width: 435px;
+    --thumb-height: 276px;
+}
+@media (max-width:800px) {
+    :root {
+        --thumb-width: 136px;
+        --thumb-height: 77px;
+    }
+}
+
+.thumb {
+    display: inline-block;
+    vertical-align: top;
+
+    width: var(--thumb-width);
+    height: var(--thumb-height);
+
+    border: 1px solid black;
+}
+
+.thumb-loading {
+    background: url(assets/loading.gif) 50% no-repeat;
+}
+
+/* to measure size of the .thumb */
+.thumb-init {
+    position: absolute;
+    width: var(--thumb-width);
+    height: var(--thumb-height);
+}
+
+/* to force scrollbar for initial measuring */
+.height-overflow {
+    height: 100vh;
+    margin-bottom: 1px;
+}
+
+.loader {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    width: 50px;
+    height: 50px;
+    background: url(assets/loading.gif) 50% no-repeat;
+}
