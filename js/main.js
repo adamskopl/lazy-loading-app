@@ -32,7 +32,7 @@ window.app = new Vue({
       this.appendPromise = this.appendPromise
         .then(() => {
           // TODO: add to config (how many rows)
-          const targetRowsNumber = this.furthestRow + 1 + this.inColumn;
+          const targetRowsNumber = this.furthestRow + 1 + this.inColumn * 2;
           const diff = targetRowsNumber - elementsCollection.getRowsNumber();
           this.appending = true;
           // diff could be 0
@@ -67,7 +67,7 @@ window.app = new Vue({
 
     elementsCollection.init(this.inRow, this.elements);
     // append extra row to force scroll visibility
-    this.appendRows(this.inColumn * 2) // TODO: add to config (how many rows)
+    this.appendRows(this.inColumn * 2)
       .then(() => {
         this.onScrollStop();
       });

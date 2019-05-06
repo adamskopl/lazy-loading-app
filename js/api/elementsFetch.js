@@ -1,20 +1,23 @@
 import { fetchThumbnails as timeoutFetch } from './apiTimeoutObjects.js';
 import { fetchThumbnails as jsonPlaceholder } from './apiJsonPlaceholder.js';
+import { fetchThumbnails as ipla } from './apiIpla.js';
 
 let fetchedElements = [];
 
 export const sources = {
   TIMEOUT_OBJECTS: 'TIMEOUT_OBJECTS',
   JSON_PLACEHOLDER: 'JSON_PLACEHOLDER',
+  IPLA: 'IPLA',
 };
 
 const apis = {
   [sources.TIMEOUT_OBJECTS]: timeoutFetch,
   [sources.JSON_PLACEHOLDER]: jsonPlaceholder,
+  [sources.IPLA]: ipla,
 };
 
 // TODO add to config
-const sourceChoice = sources.JSON_PLACEHOLDER;
+const sourceChoice = sources.IPLA;
 
 function resolveCallback(res, rej, numberNeeded) {
   apis[sourceChoice]().then(function (elements) {
